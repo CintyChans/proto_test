@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message HelloMessage
+{
+    string name = 1;
+    string message = 2;
+}
