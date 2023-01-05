@@ -1,6 +1,4 @@
 from protos import a_pb2
-import sys,os
-sys.path.append('./protos') #把protos路径添加到环境变量中，否则b_pb2导入会报错
 from protos import b_pb2
 import time
 def test_a(name,message):
