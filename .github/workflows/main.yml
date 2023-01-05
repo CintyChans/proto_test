@@ -30,7 +30,7 @@ jobs:
         run: python3 main.py        
        
       - name: pyinstaller
-        run: pyinstaller main.py -p ./protos
+        run: pyinstaller main.py 
         
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
