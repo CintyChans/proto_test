@@ -1,5 +1,9 @@
 syntax = "proto3";
+package b;
+import "a.proto";
+
 message MsgPerson
 {
     uint32 id = 1;
+    a.HelloMessage hellomessage=2;
 }
