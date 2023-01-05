@@ -24,7 +24,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt 
-          python -m grpc_tools.protoc -I./protos --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
+          python -m grpc_tools.protoc --proto_path=.  --python_out=.  --grpc_python_out=. ./protos/*.proto
           
       - name: python running
         run: python3 main.py        
