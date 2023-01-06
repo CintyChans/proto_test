@@ -27,10 +27,10 @@ jobs:
           python -m grpc_tools.protoc --proto_path=./protos  --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
           
       - name: python running
-        run: python3 main.py  -p ./protos       
+        run: python3 main.py         
        
       - name: pyinstaller
-        run: pyinstaller main.py 
+        run: pyinstaller main.py  -p ./protos
         
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
