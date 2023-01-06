@@ -27,7 +27,7 @@ jobs:
           python -m grpc_tools.protoc --proto_path=./protos  --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
           
       - name: python running
-        run: python3 main.py        
+        run: python3 main.py  -p ./protos       
        
       - name: pyinstaller
         run: pyinstaller main.py 
