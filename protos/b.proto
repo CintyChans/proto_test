@@ -1,6 +1,6 @@
 syntax = "proto3";
 package b;
-import "protos/a.proto";
+import "a.proto";
 
 message MsgPerson
 {
