@@ -9,32 +9,32 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [windows-latest,macos-10.15,ubuntu-20.04]
+        os: [self-hosted]
       
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.9.13
-        uses: actions/setup-python@v4 
-        with:
-          python-version: '3.9.13'
+#       - name: Set up Python 3.9.13
+#         uses: actions/setup-python@v4 
+#         with:
+#           python-version: '3.9.13'
         
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt 
-          python -m grpc_tools.protoc --proto_path=./protos  --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -r requirements.txt 
+#           python -m grpc_tools.protoc --proto_path=./protos  --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
           
-      - name: python running
-        run: python3 main.py         
+#       - name: python running
+#         run: python3 main.py         
        
-      - name: pyinstaller
-        run: pyinstaller main.py  -p ./protos
+#       - name: pyinstaller
+#         run: pyinstaller main.py  -p ./protos
         
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ runner.os }} pyinstaller
-          path: ./dist
+#       - name: Upload Artifacts
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: ${{ runner.os }} pyinstaller
+#           path: ./dist
           
