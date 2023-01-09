@@ -20,10 +20,12 @@ jobs:
         shell: cmd
           
       - name: python running
-        run: python3 main.py         
+        run: python3 main.py        
+        shell: cmd
        
       - name: pyinstaller
         run: pyinstaller main.py  -p ./protos
+        shell: cmd
         
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
