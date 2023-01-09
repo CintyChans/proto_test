@@ -15,17 +15,9 @@ jobs:
         
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt 
-          python -m grpc_tools.protoc --proto_path=./protos  --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
-        shell: cmd
-          
-      - name: python running
-        run: python main.py        
-        shell: cmd
-       
-      - name: pyinstaller
-        run: pyinstaller main.py  -p ./protos
-        shell: cmd
+          D:\anaconda3\envs\cinty\python.exe -m grpc_tools.protoc --proto_path=./protos  --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
+          D:\anaconda3\envs\cinty\python.exe main.py  
+          pyinstaller main.py  -p  ${{ github.workspace }}/protos
         
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
