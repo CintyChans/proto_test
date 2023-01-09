@@ -20,7 +20,7 @@ jobs:
         shell: cmd
           
       - name: python running
-        run: python3 main.py        
+        run: python main.py        
         shell: cmd
        
       - name: pyinstaller
