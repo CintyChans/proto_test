@@ -18,10 +18,11 @@ jobs:
           D:\anaconda3\envs\cinty\python.exe -m grpc_tools.protoc --proto_path=./protos  --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
           D:\anaconda3\envs\cinty\python.exe main.py  
           D:\anaconda3\envs\cinty\Scripts\pyinstaller.exe main.py  -p ${{ github.workspace }}/protos
+        shell: cmd
         
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: ${{ runner.os }} pyinstaller
-          path: ./dist
+          path: ./dist 
           
