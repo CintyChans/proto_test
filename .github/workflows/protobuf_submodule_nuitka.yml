@@ -1,0 +1,38 @@
+name: protobuf_submodule_nuitka
+on:
+  push:
+    branches: [ "main" ]
+#设置操作系统
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.9.13
+        uses: actions/setup-python@v4 
+        with:
+          python-version: '3.9.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt 
+          pip install  nuitka==1.3.6
+          python -m grpc_tools.protoc --proto_path=./protos  --python_out=./protos  --grpc_python_out=./protos ./protos/*.proto
+
+      - name: python running
+        run: python3 main.py         
+
+      - name: pyinstaller
+        run: nuitka main.py  
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ runner.os }} pyinstaller
+          path: main.exe
