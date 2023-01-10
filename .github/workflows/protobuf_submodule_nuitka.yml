@@ -34,5 +34,5 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ runner.os }} pyinstaller
+          name: ${{ runner.os }} nuitka
           path: main.exe
