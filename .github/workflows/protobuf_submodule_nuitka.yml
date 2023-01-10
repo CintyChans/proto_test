@@ -29,7 +29,7 @@ jobs:
         run: python3 main.py         
 
       - name: pyinstaller
-        run: nuitka --mingw64  --standalone main.py  
+        run: nuitka   --standalone main.py  
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
