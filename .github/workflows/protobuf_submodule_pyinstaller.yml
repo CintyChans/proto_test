@@ -1,7 +1,7 @@
 name: protobuf_submodule_pyinstaller
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 #设置操作系统
 jobs:
   build:
